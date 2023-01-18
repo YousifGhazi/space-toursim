@@ -1,0 +1,63 @@
+@use "../abstracts/index" as *;
+
+#home {
+  @include set-bg-img("home");
+
+  .page {
+    .grid-container {
+      grid-template-rows: repeat(2, auto);
+
+      @include min-breakpoints(large) {
+        grid-template-rows: 1fr;
+        padding-top: 10rem;
+      }
+
+      .left-col {
+        span {
+          text-transform: uppercase;
+          color: $neutral-200;
+        }
+
+        h1 {
+          margin: 1.5rem 0;
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+
+        p {
+          color: $neutral-200;
+          line-height: 28px;
+        }
+      }
+
+      .right-col {
+        .explore-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          aspect-ratio: 1;
+          margin: 1.25rem 0;
+          padding: 1.8rem;
+          font-size: 1.25rem;
+          text-transform: uppercase;
+          text-decoration: none;
+          letter-spacing: 2px;
+          color: $neutral-800;
+          background-color: $neutral-100;
+          transition: 200ms;
+          border-radius: 50%;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: 0 0 0 3.125rem rgba(255, 255, 255, 0.1);
+          }
+
+          @include min-breakpoints(small) {
+            font-size: 2rem;
+            padding: 3.5rem;
+          }
+        }
+      }
+    }
+  }
+}

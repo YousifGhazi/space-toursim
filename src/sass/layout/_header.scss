@@ -1,0 +1,125 @@
+@use "../abstracts/index" as *;
+
+.primary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 48em) and (max-width: 62em) {
+    margin-top: 0rem;
+  }
+}
+
+.logo {
+  margin-left: min(3.5rem, 5vw);
+}
+
+.nav-toggle {
+  position: relative;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  margin-right: 5vw;
+  background-color: transparent;
+  background-image: url("../assets/images/shared/icon-hamburger.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: none;
+  z-index: 9999;
+  cursor: pointer;
+
+  @include min-breakpoints(small) {
+    display: none;
+  }
+}
+
+.nav-toggle[aria-expanded="true"] {
+  background-image: url("../assets/images/shared/icon-close.svg");
+
+  & + .primary-navigation {
+    transform: translateX(0%);
+  }
+}
+
+.primary-navigation {
+  display: flex;
+  position: fixed;
+  width: 62vw;
+  max-width: 52rem;
+  min-height: 100vh;
+  padding: 2rem;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: 200ms;
+  background-color: rgba(22, 27, 36, 0.85);
+  z-index: 1000;
+
+  @supports (backdrop-filter: blur(30px)) {
+    background-color: hsl(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(30px);
+  }
+
+  @include min-breakpoints(small) {
+    position: relative;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    min-height: auto;
+    padding: 0 3rem;
+    transform: translateX(0%);
+  }
+
+  @include min-breakpoints(large) {
+    width: 62vw;
+    padding: 0 3rem 0 7.875rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 25vw;
+      height: 0.0625rem;
+      top: 50%;
+      left: 0;
+      transform: translate(-90%, -50%);
+      background-color: $neutral-100;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    @include min-breakpoints(small) {
+      flex-direction: row;
+      height: auto;
+      margin-top: 0rem;
+      transform: translateX(0%);
+    }
+
+    li {
+      > a {
+        display: flex;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $neutral-100;
+
+        @include min-breakpoints(small) {
+          padding-block: 2.5rem;
+        }
+
+        .number {
+          margin-right: 0.625rem;
+          font-weight: bold;
+
+          @media (min-width: 48em) and (max-width: 62em) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

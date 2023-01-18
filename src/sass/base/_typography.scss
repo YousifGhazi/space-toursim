@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+$ff-barlow: "Barlow", sans-serif;
+$ff-barlow-condensed: "Barlow Condensed", sans-serif;
+$ff-bellefair: "Bellefair", serif;
+
+body {
+  font-family: $ff-barlow-condensed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $ff-bellefair;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $neutral-100;
+}
+
+// font-family
+.ff-barlow {
+  font-family: $ff-barlow;
+  line-height: 1.8;
+}
+
+.ff-bellefair {
+  font-family: $ff-bellefair;
+}
+
+// font-size
+.fs-100 {
+  font-size: var(--fs-100);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-900 {
+  font-size: var(--fs-900);
+}
+
+.lt-1 {
+  letter-spacing: var(--lt-1);
+}
+.lt-2 {
+  letter-spacing: var(--lt-2);
+}
+.lt-3 {
+  letter-spacing: var(--lt-3);
+}

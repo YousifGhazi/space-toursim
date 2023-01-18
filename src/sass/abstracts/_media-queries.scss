@@ -1,0 +1,41 @@
+// media queries
+
+@mixin min-breakpoints($point) {
+  @if $point == small {
+    @media (min-width: 48em) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: 62em) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 75em) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+@mixin max-breakpoints($point) {
+  @if $point == mobile {
+    @media (max-width: 48em) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (max-width: 62em) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 75em) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $point) {
+      @content;
+    }
+  }
+}

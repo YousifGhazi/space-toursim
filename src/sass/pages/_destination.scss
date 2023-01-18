@@ -1,0 +1,106 @@
+@use "../abstracts/index" as *;
+
+#destination {
+  @include set-bg-img("destination");
+
+  .page {
+    .grid-container {
+      .left-col {
+        margin: 1rem 0;
+
+        @include min-breakpoints(large) {
+          justify-self: flex-end;
+        }
+        .planet-img {
+          width: 170px;
+
+          @include min-breakpoints(small) {
+            width: 300px;
+          }
+
+          @include min-breakpoints(large) {
+            width: 445px;
+          }
+        }
+      }
+
+      .right-col {
+        .planets-list {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem 0;
+
+          @include min-breakpoints(large) {
+            justify-content: flex-start;
+            margin-bottom: 1.5rem;
+          }
+
+          > li {
+            padding: 0.625rem 0;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: $neutral-200;
+
+            @include min-breakpoints(small) {
+              font-size: 1rem;
+            }
+          }
+
+          > li:not(:first-child) {
+            margin-left: 1.625rem;
+
+            @include min-breakpoints(small) {
+              margin-left: 2.5rem;
+            }
+          }
+
+          > li.active {
+            color: $neutral-100;
+          }
+        }
+
+        .planet {
+          .planet-description {
+            color: $neutral-200;
+          }
+
+          .destination-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 2rem auto 0;
+            padding: 2rem 0;
+            border-top: 1px solid $neutral-600;
+
+            @include min-breakpoints(small) {
+              flex-direction: row;
+            }
+            @include min-breakpoints(large) {
+              justify-content: flex-start;
+              margin: 2rem 0;
+            }
+
+            .distance,
+            .travel-duration {
+              --gap: 2rem;
+
+              @include min-breakpoints(small) {
+                --gap: 6rem;
+              }
+
+              > span {
+                color: $neutral-200;
+              }
+
+              .value {
+                font-size: 1.75rem;
+                margin-top: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

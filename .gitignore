@@ -1,0 +1,11 @@
+# dependencies installed by npm
+node_modules
+
+# build folder 
+dist
+
+# macOS related files
+.DS_Store
+
+# TODO file
+.todo.txt

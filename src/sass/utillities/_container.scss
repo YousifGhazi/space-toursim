@@ -1,0 +1,50 @@
+@use "../abstracts/index" as *;
+
+.grid-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: min-content repeat(2, auto);
+  width: 100%;
+  max-width: 90rem;
+  padding: 0 1rem 2rem;
+  text-align: center;
+
+  @include min-breakpoints(small) {
+    padding: 0 1rem;
+  }
+
+  @include min-breakpoints(large) {
+    grid-template-columns: 1fr repeat(2, minmax(0, 35rem)) 1fr;
+    grid-template-rows: min-content auto;
+    justify-items: start;
+    padding: 0;
+    text-align: left;
+  }
+
+  .left-col {
+    @include min-breakpoints(large) {
+      grid-column: 2;
+    }
+  }
+
+  .right-col {
+    @include min-breakpoints(large) {
+      grid-column: 3;
+      justify-self: flex-end;
+    }
+  }
+
+  .left-col,
+  .right-col {
+    p[class] {
+      @include min-breakpoints(small) {
+        max-width: 58ch;
+      }
+
+      @include min-breakpoints(large) {
+        max-width: 44ch;
+      }
+    }
+  }
+}

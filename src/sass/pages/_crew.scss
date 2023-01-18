@@ -1,0 +1,89 @@
+@use "../abstracts/index" as *;
+
+#crew {
+  @include set-bg-img("crew");
+  .page {
+    .grid-container {
+      @include min-breakpoints(large) {
+        grid-template-columns: 1fr minmax(0, 45rem) minmax(0, 25rem) 1fr;
+      }
+
+      .left-col {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.625rem;
+
+        @include min-breakpoints(small) {
+          flex-direction: column-reverse;
+        }
+
+        .crew-list {
+          display: flex;
+          justify-content: center;
+          padding: 1rem 0;
+
+          @include min-breakpoints(large) {
+            justify-content: flex-start;
+            margin-top: 5rem;
+          }
+
+          .bullet {
+            width: 0.625rem;
+            aspect-ratio: 1;
+            background-color: $neutral-600;
+            border-radius: 50%;
+            cursor: pointer;
+
+            @include min-breakpoints(large) {
+              width: 1rem;
+            }
+          }
+          .bullet:not(:first-child) {
+            margin-left: 1rem;
+
+            @include min-breakpoints(large) {
+              margin-left: 1.5rem;
+            }
+          }
+          .bullet.active {
+            background-color: $neutral-100;
+          }
+        }
+        .person-role {
+          color: $neutral-600;
+          text-transform: uppercase;
+        }
+        .person-name {
+          margin: 0.625rem 0;
+        }
+        .person-bio {
+          color: $neutral-200;
+          padding: 0.625rem 0;
+        }
+      }
+
+      .right-col {
+        display: flex;
+        align-self: flex-end;
+        justify-content: center;
+        grid-row: 2;
+        width: 100%;
+        border-bottom: 1px solid $neutral-100;
+
+        @include min-breakpoints(small) {
+          grid-row: 3;
+          border: none;
+        }
+
+        @include min-breakpoints(large) {
+          grid-row: 2;
+          justify-content: flex-end;
+        }
+
+        > img {
+          width: 45vw;
+        }
+      }
+    }
+  }
+}

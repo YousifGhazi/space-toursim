@@ -1,0 +1,58 @@
+@use "../abstracts/index" as *;
+@use "../base/typography" as *;
+
+span.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.flow > * + * {
+  margin-top: var(--gap, 2rem);
+
+  @include min-breakpoints(small) {
+    margin-top: 0;
+    margin-left: var(--gap, 2rem);
+  }
+  @include min-breakpoints(large) {
+    margin-left: 3rem;
+  }
+}
+
+.underline-indicators > * {
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-bottom: 3px solid hsl(0, 0%, 50%);
+}
+
+.underline-indicators > *.active {
+  border-bottom: 3px solid hsl(0, 0%, 100%);
+}
+
+.title {
+  margin: 2rem 1rem;
+  font-family: $ff-barlow-condensed;
+  text-transform: uppercase;
+
+  @include min-breakpoints(small) {
+    justify-self: start;
+  }
+  @include min-breakpoints(large) {
+    grid-column: 2;
+  }
+  span.number {
+    display: inline-block;
+    margin-right: 1rem;
+    font-weight: bold;
+    color: $neutral-600;
+  }
+}

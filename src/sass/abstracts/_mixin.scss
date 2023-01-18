@@ -1,0 +1,15 @@
+@use "./media-queries" as *;
+
+@mixin set-bg-img($page) {
+  background-image: url("../assets/images/#{$page}/background-#{$page}-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include min-breakpoints(small) {
+    background-image: url("../assets/images/#{$page}/background-#{$page}-tablet.jpg");
+  }
+
+  @include min-breakpoints(medium) {
+    background-image: url("../assets/images/#{$page}/background-#{$page}-desktop.jpg");
+  }
+}
