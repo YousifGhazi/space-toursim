@@ -1,0 +1,1 @@
+!function(){"use strict";document.querySelector(".nav-toggle").addEventListener("click",(function(){"true"===this.getAttribute("aria-expanded")?this.setAttribute("aria-expanded",!1):this.setAttribute("aria-expanded",!0)}))}();
